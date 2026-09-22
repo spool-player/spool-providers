@@ -1,0 +1,12 @@
+{
+  "id": "example.open-movies",
+  "name": "Open Movies",
+  "version": "1.0.0",
+  "api": "0.2",
+  "summary": "Blender's open films, free to watch",
+  "publisher": "Spool examples",
+  "homepage": "https://github.com/spool-player/spool-provider-example",
+  "url": "https://github.com/spool-player/spool-provider-example/releases/download/v1.0.0/example.open-movies-1.0.0.tar.zst",
+  "size": 4875,
+  "sha256": "513015e7a9e1e962cb430a98d8be472e85a2c0194430de325993cdf6b2d876c1"
+}

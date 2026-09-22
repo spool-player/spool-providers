@@ -1,0 +1,2 @@
+# First-party providers: listed as official and kept current from their feeds.
+spool.jellyfin

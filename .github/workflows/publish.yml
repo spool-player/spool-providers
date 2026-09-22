@@ -1,0 +1,54 @@
+name: Publish
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
+  repository_dispatch:
+    types: [provider-released]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install zstd
+        run: sudo apt-get update && sudo apt-get install -y zstd
+      # First-party providers follow their own releases; community ones
+      # change only through reviewed pull requests.
+      - name: Bump first-party providers
+        if: github.event_name != 'push'
+        run: |
+          python3 tools/store.py bump | tee bumped.txt
+          if [ -s bumped.txt ]; then
+            git config user.name "spool-providers"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add providers/
+            git commit -m "chore: $(paste -sd ', ' bumped.txt)"
+            git push
+          fi
+      - name: Build the site
+        run: python3 tools/store.py site _site
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

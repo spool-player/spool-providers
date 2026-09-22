@@ -1,0 +1,28 @@
+name: Check
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  entries:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - name: Install zstd
+        run: sudo apt-get update && sudo apt-get install -y zstd
+      # Downloads each changed package, checks it against its entry and runs
+      # the same validation Spool does before installing.
+      - name: Check changed entries
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || 'HEAD~1' }}
+        # Changes to the tooling or the official list re-check everything.
+        run: |
+          mapfile -t changed < <(git diff --name-only "$BASE" -- providers/ | grep '\.json$' || true)
+          if [ -n "$(git diff --name-only "$BASE" -- official.txt sdk/ tools/)" ]; then changed=(); fi
+          python3 tools/store.py check "${changed[@]}"
+      - name: Build the site
+        run: python3 tools/store.py site _site

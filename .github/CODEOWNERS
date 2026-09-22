@@ -1,0 +1,6 @@
+# First-party entries and the tooling that trusts them.
+/providers/spool.* @sachk
+/official.txt @sachk
+/tools/ @sachk
+/sdk/ @sachk
+/.github/ @sachk

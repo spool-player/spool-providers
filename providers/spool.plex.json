@@ -1,0 +1,13 @@
+{
+  "id": "spool.plex",
+  "name": "Plex",
+  "version": "0.1.0",
+  "api": "0.2",
+  "summary": "Your Plex Media Server",
+  "publisher": "Spool",
+  "homepage": "https://github.com/spool-player/spool-plex",
+  "url": "https://github.com/spool-player/spool-plex/releases/download/v0.1.0/spool.plex-0.1.0.tar.zst",
+  "size": 18289,
+  "sha256": "3135c354faeddcdba640947885ad7eb572132676641bf9aba7ebf54efdef27c3",
+  "feed": "https://github.com/spool-player/spool-plex/releases/latest/download/spool-provider.json"
+}

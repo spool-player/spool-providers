@@ -9,6 +9,10 @@ site, <https://spool-player.github.io/spool-providers/>:
 Each entry names one release of one provider: its version, the archive's URL and its SHA-256. Spool
 installs a download only when it matches, so what you get is exactly what was reviewed here.
 
+The official catalogue includes Jellyfin, Emby and Plex. Each provider keeps its
+server protocol, sign-in screens and playback-quality negotiation in its own
+MPL-2.0 repository under `spool-player`.
+
 ## Publishing a provider
 
 1. Build and release your provider (see the SDK in

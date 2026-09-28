@@ -1,13 +1,13 @@
 {
   "id": "spool.jellyfin",
   "name": "Jellyfin",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "api": "0.2",
+  "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.4/spool.jellyfin-0.2.4.tar.zst",
+  "size": 33353,
+  "sha256": "91ec41b3d20eb9f3041b4262753311828d7819927ceb539a9e24066a52e3ee34",
   "summary": "Your Jellyfin server",
   "publisher": "Spool",
   "homepage": "https://github.com/spool-player/spool-jellyfin",
-  "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.3/spool.jellyfin-0.2.3.tar.zst",
-  "size": 19803,
-  "sha256": "b7e8849be2cc22c85b9ae655117cdc3571785dd8e74dd3d678ddb2ae2b2ac12d",
   "feed": "https://github.com/spool-player/spool-jellyfin/releases/latest/download/spool-provider.json"
 }

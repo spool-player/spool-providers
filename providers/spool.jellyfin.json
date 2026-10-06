@@ -1,14 +1,14 @@
 {
   "id": "spool.jellyfin",
   "name": "Jellyfin",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "api": "0.2",
-  "appleAppStore": true,
-  "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.9/spool.jellyfin-0.2.9.tar.zst",
-  "size": 34650,
-  "sha256": "5c9d88a21624ffe4bd924615d8bf9ad859173eae38e72cd59882e80f250a2044",
+  "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.10/spool.jellyfin-0.2.10.tar.zst",
+  "size": 37354,
+  "sha256": "18d83631a5eb2592481d8234aebaf665896ec1649bbb4c70eec20c7beee677ec",
   "summary": "Your Jellyfin server",
   "publisher": "Spool",
   "homepage": "https://github.com/spool-player/spool-jellyfin",
-  "feed": "https://github.com/spool-player/spool-jellyfin/releases/latest/download/spool-provider.json"
+  "feed": "https://github.com/spool-player/spool-jellyfin/releases/latest/download/spool-provider.json",
+  "appleAppStore": true
 }

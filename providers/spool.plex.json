@@ -1,14 +1,14 @@
 {
   "id": "spool.plex",
   "name": "Plex",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "api": "0.2",
-  "appleAppStore": true,
-  "url": "https://github.com/spool-player/spool-plex/releases/download/v0.1.6/spool.plex-0.1.6.tar.zst",
-  "size": 52188,
-  "sha256": "d03c77ca5c8d768682d7dbca69efa986e6ae1c8618b739eba217e47051c35543",
+  "url": "https://github.com/spool-player/spool-plex/releases/download/v0.1.7/spool.plex-0.1.7.tar.zst",
+  "size": 54196,
+  "sha256": "ff85ef3d4cd1717ede4a719998eef38fcc44aaa53b4056f0644230fa9028b379",
   "summary": "Your Plex Media Server",
   "publisher": "Spool",
   "homepage": "https://github.com/spool-player/spool-plex",
-  "feed": "https://github.com/spool-player/spool-plex/releases/latest/download/spool-provider.json"
+  "feed": "https://github.com/spool-player/spool-plex/releases/latest/download/spool-provider.json",
+  "appleAppStore": true
 }

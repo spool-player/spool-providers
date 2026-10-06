@@ -1,14 +1,14 @@
 {
   "id": "spool.emby",
   "name": "Emby",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "api": "0.2",
-  "appleAppStore": true,
-  "url": "https://github.com/spool-player/spool-emby/releases/download/v0.1.5/spool.emby-0.1.5.tar.zst",
-  "size": 47345,
-  "sha256": "ae588ffdb33f9c0887151b888f0bddab11e6d83a30fb3cb097348e832727f150",
+  "url": "https://github.com/spool-player/spool-emby/releases/download/v0.1.6/spool.emby-0.1.6.tar.zst",
+  "size": 49433,
+  "sha256": "210e682ea8d9d967ca49f6835a37ac7450e2cea609a94a45c6f8a27945c4fb9d",
   "summary": "Your Emby server",
   "publisher": "Spool",
   "homepage": "https://github.com/spool-player/spool-emby",
-  "feed": "https://github.com/spool-player/spool-emby/releases/latest/download/spool-provider.json"
+  "feed": "https://github.com/spool-player/spool-emby/releases/latest/download/spool-provider.json",
+  "appleAppStore": true
 }

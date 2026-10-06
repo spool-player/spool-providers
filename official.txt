@@ -2,3 +2,4 @@
 spool.jellyfin
 spool.emby
 spool.plex
+spool.stremio

@@ -3,6 +3,7 @@
   "name": "Emby",
   "version": "0.1.5",
   "api": "0.2",
+  "appleAppStore": true,
   "url": "https://github.com/spool-player/spool-emby/releases/download/v0.1.5/spool.emby-0.1.5.tar.zst",
   "size": 47345,
   "sha256": "ae588ffdb33f9c0887151b888f0bddab11e6d83a30fb3cb097348e832727f150",

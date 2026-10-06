@@ -3,6 +3,7 @@
   "name": "Jellyfin",
   "version": "0.2.9",
   "api": "0.2",
+  "appleAppStore": true,
   "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.9/spool.jellyfin-0.2.9.tar.zst",
   "size": 34650,
   "sha256": "5c9d88a21624ffe4bd924615d8bf9ad859173eae38e72cd59882e80f250a2044",

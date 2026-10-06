@@ -26,7 +26,7 @@ spec = importlib.util.spec_from_file_location("spool_provider", ROOT / "sdk/spoo
 sdk = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sdk)
 
-REQUIRED = ("id", "name", "version", "api", "url", "size", "sha256")
+REQUIRED = ("id", "name", "version", "api", "url", "size", "sha256", "appleAppStore")
 OPTIONAL = ("summary", "publisher", "homepage", "feed")
 LISTED = REQUIRED + ("summary", "publisher", "homepage")
 ICON_TYPES = {".svg": "image/svg+xml", ".png": "image/png"}
@@ -67,6 +67,8 @@ def check_entry(entry: dict, name: str | None = None) -> tuple[dict, dict[str, b
         fail(f"{name or entry.get('id')}: missing {missing}, unknown {unknown}")
     if name is not None and name != entry["id"]:
         fail(f"providers/{name}.json holds {entry['id']}; name the file after the id")
+    if type(entry["appleAppStore"]) is not bool:
+        fail(f"{entry['id']}: appleAppStore must be a boolean")
     if entry["id"].startswith("spool.") and entry["id"] not in official():
         fail(f"{entry['id']}: the spool. prefix is for first-party providers")
     if entry["api"] != sdk.API:
@@ -108,6 +110,8 @@ def bump() -> None:
             continue
         latest = {key: latest[key] for key in REQUIRED + OPTIONAL if key in latest}
         latest["feed"] = entry["feed"]
+        # Store inclusion is curated policy, never controlled by a provider feed.
+        latest["appleAppStore"] = entry["appleAppStore"]
         check_entry(latest, name)
         (ROOT / "providers" / f"{name}.json").write_text(json.dumps(latest, indent=2) + "\n")
         print(f"{name} {entry['version']} -> {latest['version']}")

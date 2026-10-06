@@ -3,6 +3,7 @@
   "name": "Open Movies",
   "version": "1.0.0",
   "api": "0.2",
+  "appleAppStore": true,
   "summary": "Blender's open films, free to watch",
   "publisher": "Spool examples",
   "homepage": "https://github.com/spool-player/spool-provider-example",

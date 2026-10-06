@@ -9,9 +9,9 @@ site, <https://spool-player.github.io/spool-providers/>:
 Each entry names one release of one provider: its version, the archive's URL and its SHA-256. Spool
 installs a download only when it matches, so what you get is exactly what was reviewed here.
 
-The official catalogue includes Jellyfin, Emby and Plex. Each provider keeps its
-server protocol, sign-in screens and playback-quality negotiation in its own
-MPL-2.0 repository under `spool-player`.
+The official catalogue includes Jellyfin, Emby, Plex and Stremio. Each provider keeps its
+protocol and screens in its own repository under `spool-player`. Jellyfin, Emby and Plex
+are MPL-2.0; the new Stremio provider is original 0BSD code, with no bundled torrent engine.
 
 ## Publishing a provider
 
@@ -25,7 +25,11 @@ MPL-2.0 repository under `spool-player`.
    python3 sdk/spool-provider.py feed dist/<id>-<version>.tar.zst --url <where the release serves it>
    ```
 
-2. Open a pull request here adding `providers/<id>.json` with that `spool-provider.json`, unchanged.
+2. Open a pull request here adding `providers/<id>.json` with that `spool-provider.json` and
+   the required curated boolean `appleAppStore`. Existing reviewed providers are `true`;
+   Stremio is `false` and is excluded from Apple App Store builds. The flag is catalogue policy,
+   not provider-controlled feed metadata: release bumps preserve it, and both generated
+   catalogues include it unchanged. App Store consumers include only explicit `true`.
    The check downloads the package, compares it with the entry and runs the validation Spool runs
    before installing. A maintainer reviews the code.
 

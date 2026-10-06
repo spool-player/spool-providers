@@ -1,0 +1,14 @@
+{
+  "id": "spool.stremio",
+  "name": "Stremio",
+  "version": "0.1.0",
+  "api": "0.2",
+  "appleAppStore": false,
+  "url": "https://github.com/spool-player/spool-stremio/releases/download/v0.1.0/spool.stremio-0.1.0.tar.zst",
+  "size": 12211,
+  "sha256": "c6deaa684069ce5dc8a82d476b1d17bd24a031b8488178d423c59b0b0f0a2c27",
+  "summary": "Trusted Stremio add-ons and your external streaming server",
+  "publisher": "Spool",
+  "homepage": "https://github.com/spool-player/spool-stremio",
+  "feed": "https://github.com/spool-player/spool-stremio/releases/latest/download/spool-provider.json"
+}

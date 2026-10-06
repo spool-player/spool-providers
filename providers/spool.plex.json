@@ -3,6 +3,7 @@
   "name": "Plex",
   "version": "0.1.6",
   "api": "0.2",
+  "appleAppStore": true,
   "url": "https://github.com/spool-player/spool-plex/releases/download/v0.1.6/spool.plex-0.1.6.tar.zst",
   "size": 52188,
   "sha256": "d03c77ca5c8d768682d7dbca69efa986e6ae1c8618b739eba217e47051c35543",

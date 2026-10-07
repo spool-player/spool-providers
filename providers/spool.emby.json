@@ -2,7 +2,7 @@
   "id": "spool.emby",
   "name": "Emby",
   "version": "0.1.6",
-  "api": "0.2",
+  "format": 2,
   "url": "https://github.com/spool-player/spool-emby/releases/download/v0.1.6/spool.emby-0.1.6.tar.zst",
   "size": 49433,
   "sha256": "210e682ea8d9d967ca49f6835a37ac7450e2cea609a94a45c6f8a27945c4fb9d",

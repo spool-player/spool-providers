@@ -2,7 +2,7 @@
   "id": "example.open-movies",
   "name": "Open Movies",
   "version": "1.1.0",
-  "api": "0.2",
+  "format": 2,
   "appleAppStore": true,
   "summary": "Blender's open films, free to watch",
   "publisher": "Spool examples",

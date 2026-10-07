@@ -22,7 +22,7 @@ class AppleStorePolicy(unittest.TestCase):
             source = root / "source"
             (source / "logic").mkdir(parents=True)
             (source / "logic/provider.mjs").write_text("export function createSource() { return { describe: () => ({}) }; }\n")
-            manifest = {"format": 2, "api": "0.2", "id": "spool.test", "name": "Policy test", "version": "1.0.0", "entry": "logic/provider.mjs"}
+            manifest = {"format": 3, "capabilities": [], "id": "spool.test", "name": "Policy test", "version": "1.0.0", "entry": "logic/provider.mjs"}
             (source / "manifest.json").write_text(json.dumps(manifest))
             first = store.sdk.build(source, root / "first.tar.zst")
             entry = store.sdk.feed(first, "https://releases.example/first.tar.zst")

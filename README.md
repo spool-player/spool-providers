@@ -52,3 +52,18 @@ python3 tools/store.py site _site       # what Pages serves
 
 `sdk/spool-provider.py` is Spool's own validator, copied from spool-player/spool at the revision in
 `sdk/REVISION`. Needs Python 3.14 or the `zstd` command.
+
+## Format-3 cutover staging
+
+The validator and generated feed schema now require numeric `format: 3`, with no
+`api` field. Existing curated entries retain `format: 2` because their URLs and
+digests still name the actual published format-2 archives; they are intentionally
+not valid cutover releases. Do not deploy this staged catalogue before replacing
+all five entries with real format-3 release metadata.
+
+Push the approved SDK source revision first, then validate and release each
+canonical provider. Generate `spool-provider.json` from its actual uploaded
+`.tar.zst` using the SDK `feed` command above. Replace each curated entry with
+that output while preserving its reviewed `appleAppStore` flag (Stremio remains
+false); only then run `store.py check` and regenerate/deploy the catalogue. The
+host bundled-provider lock must likewise use the actual release archive bytes.

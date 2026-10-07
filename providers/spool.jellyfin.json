@@ -2,7 +2,7 @@
   "id": "spool.jellyfin",
   "name": "Jellyfin",
   "version": "0.2.10",
-  "api": "0.2",
+  "format": 2,
   "url": "https://github.com/spool-player/spool-jellyfin/releases/download/v0.2.10/spool.jellyfin-0.2.10.tar.zst",
   "size": 37354,
   "sha256": "18d83631a5eb2592481d8234aebaf665896ec1649bbb4c70eec20c7beee677ec",

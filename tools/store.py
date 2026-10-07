@@ -26,7 +26,7 @@ spec = importlib.util.spec_from_file_location("spool_provider", ROOT / "sdk/spoo
 sdk = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sdk)
 
-REQUIRED = ("id", "name", "version", "api", "url", "size", "sha256", "appleAppStore")
+REQUIRED = ("id", "name", "version", "format", "url", "size", "sha256", "appleAppStore")
 OPTIONAL = ("summary", "publisher", "homepage", "feed")
 LISTED = REQUIRED + ("summary", "publisher", "homepage")
 ICON_TYPES = {".svg": "image/svg+xml", ".png": "image/png"}
@@ -71,8 +71,8 @@ def check_entry(entry: dict, name: str | None = None) -> tuple[dict, dict[str, b
         fail(f"{entry['id']}: appleAppStore must be a boolean")
     if entry["id"].startswith("spool.") and entry["id"] not in official():
         fail(f"{entry['id']}: the spool. prefix is for first-party providers")
-    if entry["api"] != sdk.API:
-        fail(f"{entry['id']}: built for provider API {entry['api']}, the store takes {sdk.API}")
+    if type(entry["format"]) is not int or entry["format"] != 3:
+        fail(f"{entry['id']}: package format must be 3")
     if not re.fullmatch(r"https://[^\s]+\.tar\.zst", entry["url"]):
         fail(f"{entry['id']}: url must be an https link to a .tar.zst")
     if not re.fullmatch(r"[0-9a-f]{64}", entry["sha256"]):
@@ -84,7 +84,7 @@ def check_entry(entry: dict, name: str | None = None) -> tuple[dict, dict[str, b
         file.write(archive)
         file.flush()
         manifest, files = sdk.read(pathlib.Path(file.name))
-    for key in ("id", "name", "version", "api"):
+    for key in ("id", "name", "version", "format"):
         if manifest.get(key) != entry[key]:
             fail(f"{entry['id']}: entry {key} {entry[key]!r} differs from the package's {manifest.get(key)!r}")
     return manifest, files

@@ -2,7 +2,7 @@
   "id": "spool.plex",
   "name": "Plex",
   "version": "0.1.7",
-  "api": "0.2",
+  "format": 2,
   "url": "https://github.com/spool-player/spool-plex/releases/download/v0.1.7/spool.plex-0.1.7.tar.zst",
   "size": 54196,
   "sha256": "ff85ef3d4cd1717ede4a719998eef38fcc44aaa53b4056f0644230fa9028b379",

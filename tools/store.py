@@ -6,7 +6,7 @@
   store.py site OUT                          write OUT/official.json, OUT/index.json and OUT/icons/
 
 An entry is the feed entry a provider publishes with each release
-(spool-provider.py feed): id, name, version, api, url, size, sha256 and
+(spool-provider.py feed): id, name, version, format, url, size, sha256 and
 optionally summary, publisher and homepage. First-party entries
 (official.txt) also name the `feed` they are kept current from.
 """

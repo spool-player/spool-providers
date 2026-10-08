@@ -53,17 +53,14 @@ python3 tools/store.py site _site       # what Pages serves
 `sdk/spool-provider.py` is Spool's own validator, copied from spool-player/spool at the revision in
 `sdk/REVISION`. Needs Python 3.14 or the `zstd` command.
 
-## Format-3 cutover staging
+## Current provider contract
 
-The validator and generated feed schema now require numeric `format: 3`, with no
-`api` field. Existing curated entries retain `format: 2` because their URLs and
-digests still name the actual published format-2 archives; they are intentionally
-not valid cutover releases. Do not deploy this staged catalogue before replacing
-all five entries with real format-3 release metadata.
+The catalogue and validator use numeric `format: 3`, without a separate `api`
+field or extension-major negotiation. All five curated entries pin actual
+published current-contract archives: Jellyfin 0.2.11, Emby 0.1.7, Plex 0.1.8,
+Stremio 0.1.2 and Open Movies 1.1.1.
 
-Push the approved SDK source revision first, then validate and release each
-canonical provider. Generate `spool-provider.json` from its actual uploaded
-`.tar.zst` using the SDK `feed` command above. Replace each curated entry with
-that output while preserving its reviewed `appleAppStore` flag (Stremio remains
-false); only then run `store.py check` and regenerate/deploy the catalogue. The
-host bundled-provider lock must likewise use the actual release archive bytes.
+Release metadata must come from the actual uploaded `.tar.zst`; preserve the
+reviewed `appleAppStore` flag when updating an entry. Stremio remains `false`.
+Run `store.py check` before deployment. The host's bundled-provider lock uses
+the same published archive bytes and SHA-256 pins.

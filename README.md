@@ -25,6 +25,11 @@ are MPL-2.0; the new Stremio provider is original 0BSD code, with no bundled tor
    python3 sdk/spool-provider.py feed dist/<id>-<version>.tar.zst --url <where the release serves it>
    ```
 
+   Package URLs must use HTTPS; their filenames are opaque. Both existing `.tar.zst`
+   URLs and future `.szo` or extensionless URLs are accepted. The downloaded bytes,
+   size, SHA-256, format-3 manifest and package contents—not the URL suffix—determine
+   package validity.
+
 2. Open a pull request here adding `providers/<id>.json` with that `spool-provider.json` and
    the required curated boolean `appleAppStore`. Existing reviewed providers are `true`;
    Stremio is `false` and is excluded from Apple App Store builds. The flag is catalogue policy,

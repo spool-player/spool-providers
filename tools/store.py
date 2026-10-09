@@ -73,8 +73,8 @@ def check_entry(entry: dict, name: str | None = None) -> tuple[dict, dict[str, b
         fail(f"{entry['id']}: the spool. prefix is for first-party providers")
     if type(entry["format"]) is not int or entry["format"] != 3:
         fail(f"{entry['id']}: package format must be 3")
-    if not re.fullmatch(r"https://[^\s]+\.tar\.zst", entry["url"]):
-        fail(f"{entry['id']}: url must be an https link to a .tar.zst")
+    if not re.fullmatch(r"https://[^\s]+", entry["url"]):
+        fail(f"{entry['id']}: url must be an https link")
     if not re.fullmatch(r"[0-9a-f]{64}", entry["sha256"]):
         fail(f"{entry['id']}: sha256 must be 64 lowercase hex digits")
     archive = fetch(entry["url"], sdk.MAX_ARCHIVE)

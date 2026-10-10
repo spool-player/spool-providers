@@ -16,17 +16,17 @@ are MPL-2.0; the new Stremio provider is original 0BSD code, with no bundled tor
 ## Publishing a provider
 
 1. Build and release your provider (see the SDK in
-   [spool-player/spool](https://github.com/spool-player/spool/tree/main/sdk), or start from
-   [spool-provider-example](https://github.com/spool-player/spool-provider-example)). Each release
-   carries the `.tar.zst` package and its `spool-provider.json`:
+   [spool-player/spool](https://github.com/spool-player/spool/tree/master/sdk), or start from
+   [spool-provider-example](https://github.com/spool-player/spool-provider-example)). New releases
+   carry a `.szo` package and its `spool-provider.json`:
 
    ```
-   python3 sdk/spool-provider.py build .
-   python3 sdk/spool-provider.py feed dist/<id>-<version>.tar.zst --url <where the release serves it>
+   python3 sdk/spool-provider.py build . --output dist/<id>-<version>.szo
+   python3 sdk/spool-provider.py feed dist/<id>-<version>.szo --url <where the release serves it>
    ```
 
    Package URLs must use HTTPS; their filenames are opaque. Both existing `.tar.zst`
-   URLs and future `.szo` or extensionless URLs are accepted. The downloaded bytes,
+   URLs and `.szo` or extensionless URLs are accepted. The downloaded bytes,
    size, SHA-256, format-3 manifest and package contents—not the URL suffix—determine
    package validity.
 
@@ -62,10 +62,10 @@ python3 tools/store.py site _site       # what Pages serves
 
 The catalogue and validator use numeric `format: 3`, without a separate `api`
 field or extension-major negotiation. All five curated entries pin actual
-published current-contract archives: Jellyfin 0.2.11, Emby 0.1.7, Plex 0.1.8,
+published current-contract archives: Jellyfin 0.2.13, Emby 0.1.8, Plex 0.1.9,
 Stremio 0.1.2 and Open Movies 1.1.1.
 
-Release metadata must come from the actual uploaded `.tar.zst`; preserve the
+Release metadata must come from the actual uploaded archive; preserve the
 reviewed `appleAppStore` flag when updating an entry. Stremio remains `false`.
 Run `store.py check` before deployment. The host's bundled-provider lock uses
 the same published archive bytes and SHA-256 pins.

@@ -1,13 +1,13 @@
 {
   "id": "example.open-movies",
   "name": "Open Movies",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "format": 3,
   "appleAppStore": true,
   "summary": "Blender's open films, free to watch",
   "publisher": "Spool examples",
   "homepage": "https://github.com/spool-player/spool-provider-example",
-  "url": "https://github.com/spool-player/spool-provider-example/releases/download/v1.1.1/example.open-movies-1.1.1.tar.zst",
-  "size": 5221,
-  "sha256": "20fe53ea93eeea93b87ca324f4e04464301267e48d3cf717ed59e92586586ab8"
+  "url": "https://github.com/spool-player/spool-provider-example/releases/download/v1.1.2/example.open-movies-1.1.2.szo",
+  "size": 5222,
+  "sha256": "e9d7f10328309c2810049c86aa8a4f0a70fd24bc91dcad666fe6a2d52f819c7f"
 }
